@@ -194,7 +194,7 @@ define Device/sercomm_cxx_dxx
   SERCOMM_KERNEL_OFFSET := 0x400100
   SERCOMM_ROOTFS_OFFSET := 0x1000000
   DEVICE_PACKAGES := kmod-mt7603 kmod-mt7615-firmware kmod-usb3 \
-  uboot-envtools
+	uboot-envtools
 endef
 
 define Device/sercomm_cxx
