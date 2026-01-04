@@ -434,10 +434,10 @@ else
 	  --info "url:$(URL)" \
 	  --info "maintainer:$(MAINTAINER)" \
 	  --info "provides:$$(if $$(ABIV_$(1)), \
-	    $(1) $(foreach provide,$(PROVIDES), $(provide)$$(ABIV_$(1))=$(VERSION)), \
+	    $(1) $(foreach provide,$(PROVIDES),$(provide)$$(ABIV_$(1))=$(VERSION)), \
 	    $(if $(ALTERNATIVES), \
 	      $(PROVIDES), \
-	      $(foreach provide,$(PROVIDES), $(provide)=$(VERSION)) \
+	      $(foreach provide,$(filter-out $(1),$(PROVIDES)),$(if $(findstring kmod-,$(1)),$(provide), $(provide)=$(VERSION))) \
 	    ) \
 	  )" \
 	  $(if $(DEFAULT_VARIANT),--info "provider-priority:100",$(if $(PROVIDES),--info "provider-priority:1")) \
