@@ -30,6 +30,7 @@ define Package/ca-certificates
   TITLE:=System CA certificates
   PKGARCH:=all
   PROVIDES:=ca-certs
+  ALTERNATIVES:=100:/etc/ssl/certs/__ca-certificates.alternatives:/dev/null
 endef
 
 define Package/ca-bundle
@@ -38,6 +39,7 @@ define Package/ca-bundle
   TITLE:=System CA certificates as a bundle
   PKGARCH:=all
   PROVIDES:=ca-certs
+  ALTERNATIVES:=200:/etc/ssl/certs/__ca-bundle.alternatives:/dev/null
 endef
 
 define Build/Install
