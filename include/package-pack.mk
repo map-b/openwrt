@@ -440,7 +440,8 @@ else
 	      $(foreach provide,$(filter-out $(1),$(PROVIDES)),$(if $(findstring kmod-,$(1)),$(provide), $(provide)=$(VERSION))) \
 	    ) \
 	  )" \
-	  $(if $(DEFAULT_VARIANT),--info "provider-priority:100",$(if $(PROVIDES),--info "provider-priority:1")) \
+	  $(if $(DEFAULT_VARIANT),--info "provider-priority:100",$(if $(ALTERNATIVES),--info "provider-priority:1",$(if $(findstring kmod-,$(1)),--info "provider-priority:1"))) \
+	  $(if $(findstring linux,$(SOURCE)),--info "provider-priority:50") \
 	  $$(APK_SCRIPTS_$(1)) \
 	  --info "depends:$$(foreach depends,$$(subst $$(comma),$$(space),$$(subst $$(space),,$$(subst $$(paren_right),,$$(subst $$(paren_left),,$$(Package/$(1)/DEPENDS))))),$$(depends))" \
 	  --files "$$(IDIR_$(1))" \
