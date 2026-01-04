@@ -1198,7 +1198,7 @@ endef
 $(eval $(call KernelPackage,8139cp))
 
 
-define KernelPackage/r8169
+define KernelPackage/r8169-default
   SUBMENU:=$(NETWORK_DEVICES_MENU)
   TITLE:=RealTek RTL-8169 PCI Gigabit Ethernet Adapter kernel support
   DEPENDS:=@PCI_SUPPORT +kmod-mii +r8169-firmware +kmod-phy-realtek +kmod-mdio-devres
@@ -1207,13 +1207,14 @@ define KernelPackage/r8169
     CONFIG_R8169_LEDS=y
   FILES:=$(LINUX_DIR)/drivers/net/ethernet/realtek/r8169.ko
   AUTOLOAD:=$(call AutoProbe,r8169,1)
+  PROVIDES:=kmod-r8169
 endef
 
-define KernelPackage/r8169/description
+define KernelPackage/r8169-default/description
  Kernel modules for RealTek RTL-8169 PCI Gigabit Ethernet adapters
 endef
 
-$(eval $(call KernelPackage,r8169))
+$(eval $(call KernelPackage,r8169-default))
 
 
 define KernelPackage/ne2k-pci
