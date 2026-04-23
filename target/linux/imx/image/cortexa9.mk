@@ -133,6 +133,32 @@ define Device/gateworks_ventana
   PAGESIZE := 2048
   BLOCKSIZE := 128k
   MKUBIFS_OPTS := -m $$(PAGESIZE) -e 124KiB
+  SUPPORTED_DEVICES += \
+	gw,imx6dl-gw51xx \
+	gw,imx6dl-gw52xx \
+	gw,imx6dl-gw53xx \
+	gw,imx6dl-gw54xx \
+	gw,imx6dl-gw551x \
+	gw,imx6dl-gw552x \
+	gw,imx6dl-gw553x \
+	gw,imx6dl-gw5904 \
+	gw,imx6dl-gw5907 \
+	gw,imx6dl-gw5910 \
+	gw,imx6dl-gw5912 \
+	gw,imx6dl-gw5913 \
+	gw,imx6q-gw51xx \
+	gw,imx6q-gw52xx \
+	gw,imx6q-gw53xx \
+	gw,imx6q-gw5400-a \
+	gw,imx6q-gw54xx \
+	gw,imx6q-gw551x \
+	gw,imx6q-gw552x \
+	gw,imx6q-gw553x \
+	gw,imx6q-gw5904 \
+	gw,imx6q-gw5907 \
+	gw,imx6q-gw5910 \
+	gw,imx6q-gw5912 \
+	gw,imx6q-gw5913
 endef
 TARGET_DEVICES += gateworks_ventana
 
